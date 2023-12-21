@@ -1,0 +1,17 @@
+version: "0.2"
+volumes:
+  mysql_vol_test:
+services:
+  jupyter:
+    container_name: jupyter_lab
+    hostname: jupyterlab
+    # restart: always
+    build: .
+    ports:
+      - "8800:8888"
+    environment:
+      - JUPYTER_TOKEN=${jupyter_pw}
+    env_file:
+      - jupyter.env
+    volumes:
+      - .:/app
