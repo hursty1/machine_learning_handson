@@ -3,12 +3,18 @@ volumes:
   mysql_vol_test:
 services:
   jupyter:
-    container_name: jupyter_lab
+    container_name: gpu-jupyter
     hostname: jupyterlab
     # restart: always
-    build: .
+    build: ./docker/gpu
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+              - gpu
     ports:
-      - "8800:8888"
+      - "8400:8888"
     environment:
       - JUPYTER_TOKEN=${jupyter_pw}
     env_file:
