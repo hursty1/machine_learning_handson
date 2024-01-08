@@ -4,3 +4,7 @@
 */datasets
 /datasets/
 /images/
+ovr_clf.joblib
+untitled.dio
+chpt2/random_forest.pkl
+*.csv
